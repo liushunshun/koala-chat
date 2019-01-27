@@ -20,16 +20,25 @@
 </template>
 
 <script>
+import { actions } from './store';
+
 import Card from './components/card';
 import List from './components/list';
 import Enter from './components/enter';
 import Message from './components/message';
+import data from './mock/mock.js';
 
 export default {
   name: 'app',
+  vuex: {
+    actions: actions
+  },
   components: {
     Card,List,Enter,Message
-  }
+  },
+  // created () {
+  //   this.initData();
+  // }
 }
 </script>
 
