@@ -3,6 +3,7 @@ import Mock from 'mockjs';
 Mock.mock('/contact/list', 'get', function() {
     return Mock.mock({
         "sessions|3-5": [{
+              'id':'@integer(1, 5)',
               'user':{
                 'name': '@cname',
                 'id': '@integer(6000, 10000)',
@@ -11,7 +12,7 @@ Mock.mock('/contact/list', 'get', function() {
               'message|2-3': [
                 {
                   content:'@cparagraph(2)',
-                  data:'@date'
+                  date:'@date'
                 }
               ]
           }

@@ -1,12 +1,14 @@
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters,mapState } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters({
-      // user: 'getCurrentUserInfo'
-    })
+    count(){
+      return this.$store.getters.getSessionsBySid
+    }
   }
+
+
 };
 </script>
 
@@ -15,11 +17,11 @@ export default {
     <ul>
         <li >
             <p class="time">
-                <span>{{ '2018-11-11 10:01' }}</span>
+                <span>{{ '2018-11-11 10:02' }}</span>
             </p>
             <div class="main" >
                 <img class="avatar" width="30" height="30" src="../../dist/img/4.jpg" />
-                <div class="text">{{ 'hello' }}</div>
+                <div class="text">{{ '22' }}</div>
             </div>
         </li>
         <li >

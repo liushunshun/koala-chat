@@ -29,7 +29,8 @@ const store = new Vuex.Store({
     },
     getters: {
       getCurrentUserInfo: state => state.user,
-      getSessions: state => state.sessions
+      getSessions: state => state.sessions,
+      getSessionsBySid: (state) => state.sessions.find(session => session.id === 2)
     },
     mutations: {
         [INIT_DATA] (state) {
