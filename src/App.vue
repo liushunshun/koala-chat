@@ -1,26 +1,28 @@
 <template>
-  <div id="app">
+<div id="app">
     <div class="sidebar">
-      <card></card>
-      <list></list>
+        <card></card>
+        <list></list>
     </div>
 
     <div class="main">
         <div style="height:40px;line-height:40px;width:100%;text-align:center;">
-              <div style="padding:auto">
+            <div style="padding:auto">
                 绘茶
-              </div>
-              <hr style="width:98%;margin:auto;height:1px;border:0px;background-color:#e1e1e1;color:#e1e1e1;"/>
+            </div>
+            <hr style="width:98%;margin:auto;height:1px;border:0px;background-color:#e1e1e1;color:#e1e1e1;" />
 
         </div>
         <message></message>
         <enter></enter>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
-import { actions } from './store';
+import {
+    actions
+} from './store';
 
 import Card from './components/card';
 import List from './components/list';
@@ -29,16 +31,19 @@ import Message from './components/message';
 import data from './mock/mock.js';
 
 export default {
-  name: 'app',
-  vuex: {
-    actions: actions
-  },
-  components: {
-    Card,List,Enter,Message
-  },
-  // created () {
-  //   this.initData();
-  // }
+    name: 'app',
+    vuex: {
+        actions: actions
+    },
+    components: {
+        Card,
+        List,
+        Enter,
+        Message
+    },
+    // created () {
+    //   this.initData();
+    // }
 }
 </script>
 
@@ -57,7 +62,8 @@ export default {
         color: #f4f4f4;
         background-color: #2e3238;
     }
-    .sidebar, .main {
+    .main,
+    .sidebar {
         height: 100%;
     }
 
@@ -73,7 +79,7 @@ export default {
         left: 0;
     }
     .message {
-        height: ~'calc(100% - 160px)';
+        height: ~'calc(100% - 200px)';
     }
 }
 </style>

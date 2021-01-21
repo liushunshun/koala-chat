@@ -7,7 +7,7 @@ Mock.mock('/contact/list', 'get', function() {
               'user':{
                 'name': '@cname',
                 'id': '@integer(6000, 10000)',
-                'img': '@image("200x100", "#000", "#fff", "png", "照片")',
+                'img': '//g.alicdn.com/xspace/xspace-ui/2.5.3/favicon-96x96.png',
               },
               'message|2-3': [
                 {
@@ -15,6 +15,17 @@ Mock.mock('/contact/list', 'get', function() {
                   date:'@date'
                 }
               ]
+          }
+      ]
+    });
+});
+
+Mock.mock('/message/list', 'get', function() {
+    return Mock.mock({
+        "messages|10": [{
+              'id':'@integer(1, 5)',
+              'time':'@date',
+              'text':'@cparagraph(2)'
           }
       ]
     });

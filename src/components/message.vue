@@ -1,54 +1,54 @@
 <script>
-import { mapGetters,mapState } from 'vuex';
+import {
+    mapGetters,
+    mapState
+} from 'vuex';
 
 export default {
-  computed: {
-    count(){
-      return this.$store.getters.getSessionsBySid
+    computed: {
+        ...mapGetters({
+            messages: 'getMessages'
+        })
+    },
+    mounted: function() {
+        var div = document.getElementById('message');
+        div.scrollTop = div.scrollHeight;
     }
-  }
-
-
 };
 </script>
 
 <template>
 <div class="message">
     <ul>
-        <li >
+        <li v-for="item in messages">
             <p class="time">
-                <span>{{ '2018-11-11 10:02' }}</span>
+                <span>{{ item.time }}</span>
             </p>
-            <div class="main" >
-                <img class="avatar" width="30" height="30" src="../../dist/img/4.jpg" />
-                <div class="text">{{ '22' }}</div>
+            <div class="main">
+                <img class="avatar" width="30" height="30" src="//g.alicdn.com/xspace/xspace-ui/2.5.3/favicon-96x96.png" />
+                <div class="text">{{ item.text }}</div>
             </div>
+
         </li>
-        <li >
-            <p class="time">
-                <span>{{ '2018-11-11 10:02' }}</span>
-            </p>
-            <div class="self" >
-                <img class="avatar" width="30" height="30" src="../../dist/img/1.jpg" />
-                <div class="text">{{ '你好呀' }}</div>
-            </div>
-        </li>
+
     </ul>
 </div>
 </template>
 
 <style lang="less" scoped>
 .message {
+    height: 100px;
     padding: 10px 15px;
     overflow-y: scroll;
 
-    ul{
-      padding-left: 0px;
+    ul {
+        padding-left: 0;
     }
 
     li {
         margin-bottom: 15px;
-        list-style: none; /*去掉小圆点*/
+        list-style: none;
+        /*去掉小圆点*/
     }
     .time {
         margin: 7px 0;

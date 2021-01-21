@@ -1,16 +1,16 @@
 <script>
-
+export default {}
 </script>
 
 <template>
 <div class="text">
-    <textarea placeholder="按 Ctrl + Enter 发送" ></textarea>
+    <textarea placeholder="按 Ctrl + Enter 发送"></textarea>
 </div>
 </template>
 
 <style lang="less" scoped>
 .text {
-    height: 160px;
+    height: 140px;
     border-top: solid 1px #ddd;
 
     textarea {

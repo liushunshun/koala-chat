@@ -5,9 +5,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios'
-import userimg from '../dist/img/1.jpg';
-import sessionUsers1Img from '../dist/img/2.png';
-import sessionUsers2Img from '../dist/img/4.jpg';
+import userimg from './assets/1.png';
+import sessionUsers1Img from './assets/1.png';
+import sessionUsers2Img from './assets/1.png';
 
 Vue.use(Vuex);
 
@@ -22,6 +22,8 @@ const store = new Vuex.Store({
         },
         // 会话列表
         sessions: [],
+        // 会话列表
+        messages: [],
         // 当前选中的会话
         currentSessionId: 1,
         // 过滤出只包含这个key的会话
@@ -30,12 +32,16 @@ const store = new Vuex.Store({
     getters: {
       getCurrentUserInfo: state => state.user,
       getSessions: state => state.sessions,
+      getMessages: state => state.messages,
       getSessionsBySid: (state) => state.sessions.find(session => session.id === 2)
     },
     mutations: {
         [INIT_DATA] (state) {
           axios.get('/contact/list').then(function (response) {
             state.sessions=response.data.sessions
+          });
+          axios.get('/message/list').then(function (response) {
+            state.messages=response.data.messages
           })
           // console.log(axios)
           // Vue.http.get('/contact/list').then(
